@@ -22,13 +22,13 @@ const ESTABLISHMENTS: Record<string, EstablishmentMeta> = {
   ENS:  { acronym: "ENS",                    full: "École Normale Supérieure",                                          footerLabel: "ENS" },
   ISTE: { acronym: "ISTE",                   full: "Institut des Sciences et Techniques de l'Environnement",            footerLabel: "ISTE" },
   EGSS: { acronym: "EGSS / EGS",             full: "Faculté d'Économie, Gestion et Sciences Sociales",                  footerLabel: "EGSS / EGS" },
-  POLY: { acronym: "POLY Vontovorona",full: "École Supérieure Polytechnique d'Antananarivo",                     footerLabel: "POLY (Vontovorona)" },
-  AGRO: { acronym: "AGRO",                   full: "École Supérieure des Sciences Agronomiques",                        footerLabel: "AGRO" },
-  ESPA: { acronym: "ESP-Antsiranana",        full: "École Supérieure Polytechnique d'Antsiranana",                      footerLabel: "ESP-Antsiranana" },
+  ESPA: { acronym: "ESPA Vontovorona",full: "École Supérieure Polytechnique d'Antananarivo",                     footerLabel: "ESPA Vontovorona" },
+  AGRO: { acronym: "AGRO",                   full: "École Supérieure des Sciences Agronomiques (ESSA)",                        footerLabel: "AGRO" },
+  ESP: { acronym: "ESP-Antsiranana",        full: "École Supérieure Polytechnique d'Antsiranana",                      footerLabel: "ESP-Antsiranana" },
 } as const;
 
 // Convenience: ordered list for iteration (programs, footer).
-const ESTABLISHMENT_ORDER = ["ENI", "EMIT", "ENS", "ISTE", "EGSS", "POLY", "AGRO", "ESPA"] as const;
+const ESTABLISHMENT_ORDER = ["ENI", "EMIT", "ENS", "ISTE", "EGSS", "ESPA", "AGRO", "ESP"] as const;
 
 // ---------------------------------------------------------------------------
 // SEO / site-wide metadata
@@ -90,7 +90,7 @@ export const siteMeta = {
     return unique;
   })(),
 
-  author: "Cours Prépa TREMPLIN",
+  author: "Cours Prépa TREMPLIN / ANDRINIAINA Tolojanahary Jacques Chilas",
   url: "https://tremplin.stonebase.tech",
   ogImage: "/assets/logo/tremplin-primary.png",
   locale: "fr_FR",
