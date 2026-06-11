@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteMeta.url),
   title: siteMeta.title,
   description: siteMeta.description,
-  keywords: siteMeta.keywords,
+  keywords: [...siteMeta.keywords],
   authors: [{ name: siteMeta.author }],
   applicationName: siteMeta.name,
   robots: { index: true, follow: true, maxImagePreview: "large" },
