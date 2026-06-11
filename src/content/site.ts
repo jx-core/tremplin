@@ -222,7 +222,7 @@ const ESTABLISHMENT_CARDS: Record<string, Omit<Establishment, "acronym" | "full"
   EGSS: {
     type: "Sciences de la société, économie, gestion.",
     logo: "/assets/establishments/egss.webp",
-    logos: ["/assets/establishments/egss.webp", "/assets/establishments/egss-ua-logo.jpg"],
+    logos: ["/assets/establishments/egss.webp", "/assets/establishments/egs.jpeg"],
     cover: "/assets/establishments/covers/egss.jpg",
     status: "soon",
     status_label: "Préparation 2026",
