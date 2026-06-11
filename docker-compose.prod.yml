@@ -64,6 +64,8 @@ services:
     restart: unless-stopped
     depends_on:
       - app
+    # Reload every 12h so renewed certs are picked up (renewal handled by the certbot service).
+    command: /bin/sh -c "(while :; do sleep 12h; nginx -s reload 2>/dev/null || true; done) & exec nginx -g 'daemon off;'"
     ports:
       - "80:80"
       - "443:443"
@@ -72,6 +74,17 @@ services:
       # Host dir holding the Let's Encrypt certs (live/ + archive/). Override via LETSENCRYPT_DIR in .env.
       - ${LETSENCRYPT_DIR:-/etc/letsencrypt}:/etc/letsencrypt:ro
       - certbot-www:/var/www/certbot
+
+  # Renews the Let's Encrypt cert via the webroot challenge (served by nginx at /.well-known/acme-challenge/).
+  certbot:
+    image: certbot/certbot:latest
+    restart: unless-stopped
+    depends_on:
+      - nginx
+    volumes:
+      - ${LETSENCRYPT_DIR:-/etc/letsencrypt}:/etc/letsencrypt
+      - certbot-www:/var/www/certbot
+    entrypoint: /bin/sh -c 'trap exit TERM; while :; do certbot renew --webroot --webroot-path=/var/www/certbot --quiet; sleep 12h & wait $${!}; done'
 
 volumes:
   pgdata:
