@@ -1,0 +1,77 @@
+# TREMPLIN — production stack for a small (2 GB) VPS.
+# Reads secrets from a .env file in this directory (see .env.production.example).
+# Bring up:  docker compose -f docker-compose.prod.yml up -d --build
+
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: tremplin
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-tremplin}
+      POSTGRES_DB: tremplin
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    # Conservative tuning for a 2 GB host shared with Node + nginx.
+    command: >
+      postgres
+      -c shared_buffers=128MB
+      -c effective_cache_size=384MB
+      -c work_mem=8MB
+      -c maintenance_work_mem=64MB
+      -c max_connections=20
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tremplin -d tremplin"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+  # One-shot: apply schema + seed defaults, then exit. Uses the builder stage (has tsx + src).
+  migrate:
+    build:
+      context: .
+      target: builder
+    environment:
+      DATABASE_URL: postgres://tremplin:${POSTGRES_PASSWORD:-tremplin}@db:5432/tremplin
+    depends_on:
+      db:
+        condition: service_healthy
+    command: ["npm", "run", "db:setup"]
+    restart: "no"
+
+  app:
+    build:
+      context: .
+      target: runner
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgres://tremplin:${POSTGRES_PASSWORD:-tremplin}@db:5432/tremplin
+      SESSION_SECRET: ${SESSION_SECRET:?set SESSION_SECRET in .env}
+      ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-}
+      ADMIN_PASSWORD_HASH: ${ADMIN_PASSWORD_HASH:-}
+    depends_on:
+      db:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+    expose:
+      - "3000"
+
+  nginx:
+    image: nginx:1.27-alpine
+    restart: unless-stopped
+    depends_on:
+      - app
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./deploy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+      - certbot-www:/var/www/certbot
+
+volumes:
+  pgdata:
+  certbot-www:
