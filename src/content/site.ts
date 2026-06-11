@@ -1,8 +1,8 @@
 /* =============================================================
-   TREMPLIN — static, stable content (rendered server-side).
+   TREMPLIN, static, stable content (rendered server-side).
    This is the content that rarely changes and does NOT need the
    admin/CRUD. Truly dynamic content (news, next session, results,
-   schedule, contact) lives in Postgres — see src/db.
+   schedule, contact) lives in Postgres, see src/db.
    Ported from the legacy website/content.json.
    ============================================================= */
 
@@ -21,7 +21,7 @@ const ESTABLISHMENTS: Record<string, EstablishmentMeta> = {
   EMIT: { acronym: "EMIT",                   full: "École de Management et d'Innovation Technologique",                 footerLabel: "EMIT" },
   ENS:  { acronym: "ENS",                    full: "École Normale Supérieure",                                          footerLabel: "ENS" },
   ISTE: { acronym: "ISTE",                   full: "Institut des Sciences et Techniques de l'Environnement",            footerLabel: "ISTE" },
-  EGSS: { acronym: "EGSS",                   full: "Faculté d'Économie, Gestion et Sciences Sociales",                  footerLabel: "EGSS" },
+  EGSS: { acronym: "EGSS / EGS",             full: "Faculté d'Économie, Gestion et Sciences Sociales",                  footerLabel: "EGSS / EGS" },
   POLY: { acronym: "POLY Vontovorona",full: "École Supérieure Polytechnique d'Antananarivo",                     footerLabel: "POLY (Vontovorona)" },
   AGRO: { acronym: "AGRO",                   full: "École Supérieure des Sciences Agronomiques",                        footerLabel: "AGRO" },
   ESPA: { acronym: "ESP-Antsiranana",        full: "École Supérieure Polytechnique d'Antsiranana",                      footerLabel: "ESP-Antsiranana" },
@@ -31,7 +31,7 @@ const ESTABLISHMENTS: Record<string, EstablishmentMeta> = {
 const ESTABLISHMENT_ORDER = ["ENI", "EMIT", "ENS", "ISTE", "EGSS", "POLY", "AGRO", "ESPA"] as const;
 
 // ---------------------------------------------------------------------------
-// SEO / site–wide metadata
+// SEO / site-wide metadata
 // ---------------------------------------------------------------------------
 export const siteMeta = {
   name: "TREMPLIN",
@@ -48,7 +48,7 @@ export const siteMeta = {
     "ENI, EMIT, ENS, ISTE, EGSS, Polytechnique, AGRO.",
 
   /* ------------------------------------------------------------------
-     SEO keywords — deduplicated, alphabetically sorted.
+     SEO keywords, deduplicated, alphabetically sorted.
      Generated from the ESTABLISHMENTS registry plus a hand‑curated
      set of generic / location / audience terms.
      ------------------------------------------------------------------ */
@@ -96,7 +96,7 @@ export const siteMeta = {
   locale: "fr_FR",
   themeColor: "#571820",
   facebookName: "Tremplin",
-  locations: ["Fianarantsoa", "Antananarivo"],
+  locations: ["Fianarantsoa"],
 } as const;
 
 // ---------------------------------------------------------------------------
@@ -222,6 +222,7 @@ const ESTABLISHMENT_CARDS: Record<string, Omit<Establishment, "acronym" | "full"
   EGSS: {
     type: "Sciences de la société, économie, gestion.",
     logo: "/assets/establishments/egss.webp",
+    logos: ["/assets/establishments/egss.webp", "/assets/establishments/egss-ua-logo.jpg"],
     cover: "/assets/establishments/covers/egss.jpg",
     status: "soon",
     status_label: "Préparation 2026",

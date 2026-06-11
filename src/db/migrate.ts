@@ -1,14 +1,14 @@
 /* Applies src/db/schema.sql to the database. Idempotent (CREATE TABLE IF NOT EXISTS).
-   Run: npm run db:migrate  (locally) — or in the Docker builder stage on deploy. */
+   Run: npm run db:migrate  (locally), or in the Docker builder stage on deploy. */
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { Pool } from "pg";
 
 try {
-  // Node >= 20.12 / 22 — load .env from cwd if present (optional; env may come from Docker Compose).
+  // Node >= 20.12 / 22, load .env from cwd if present (optional; env may come from Docker Compose).
   (process as { loadEnvFile?: (path?: string) => void }).loadEnvFile?.();
 } catch {
-  /* no .env file — env vars are provided by the environment */
+  /* no .env file, env vars are provided by the environment */
 }
 
 function redact(url?: string): string {

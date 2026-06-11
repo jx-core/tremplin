@@ -6,7 +6,7 @@ export async function middleware(req: NextRequest) {
   const token = req.cookies.get(SESSION_COOKIE)?.value;
   const session = await verifySession(token);
 
-  // Already logged in and visiting the login page → go to the dashboard.
+  // Already logged in and visiting the login page -> go to the dashboard.
   if (pathname === "/admin/login") {
     if (session) {
       const url = req.nextUrl.clone();

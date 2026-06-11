@@ -56,7 +56,7 @@ function ProgramCard({ e }: { e: Establishment }) {
   );
 
   return slug ? (
-    <Link href={`/etablissements/${slug}`} aria-label={`${e.acronym} — voir le détail`} className={cls} style={{ backgroundImage: `url("${e.cover}")` }}>
+    <Link href={`/etablissements/${slug}`} aria-label={`${e.acronym}, voir le détail`} className={cls} style={{ backgroundImage: `url("${e.cover}")` }}>
       {content}
     </Link>
   ) : (

@@ -40,7 +40,7 @@ export default async function Dashboard() {
         <StatCard label="Vagues de résultats" value={String(bars.length)} href="/admin/results" />
         <StatCard
           label="Prochaine session"
-          value={`${config.next_session.day} ${config.next_session.month}`.trim() || "—"}
+          value={`${config.next_session.day} ${config.next_session.month}`.trim() || "-"}
           href="/admin/settings"
         />
       </div>

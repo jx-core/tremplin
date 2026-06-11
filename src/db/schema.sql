@@ -1,5 +1,5 @@
 -- =============================================================
--- TREMPLIN — database schema (idempotent).
+-- TREMPLIN, database schema (idempotent).
 -- Holds ONLY the genuinely dynamic content edited via the admin:
 --   site_config  : singleton (next session, schedule, contact, results copy)
 --   result_bars  : per-vague success rates

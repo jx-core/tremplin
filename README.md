@@ -1,21 +1,21 @@
-# TREMPLIN — site Next.js + Postgres
+# TREMPLIN - site Next.js + Postgres
 
-Réécriture du site TREMPLIN en **Next.js 16 (App Router) + Tailwind CSS v4 + PostgreSQL**, rendue **côté serveur (SSR)** pour un bon référencement Google — contrairement à l'ancien site rendu côté client.
+Réécriture du site TREMPLIN en **Next.js 16 (App Router) + Tailwind CSS v4 + PostgreSQL**, rendue **côté serveur (SSR)** pour un bon référencement Google (contrairement à l'ancien site rendu côté client).
 
 ## Architecture
 
-- **Next.js standalone** (image Docker minimale) — rend chaque page en HTML côté serveur.
+- **Next.js standalone** (image Docker minimale) : rend chaque page en HTML côté serveur.
 - **PostgreSQL** via `pg` + SQL simple (pas d'ORM lourd, adapté à un VPS 2 Go).
 - **Tailwind v4** (thème de marque dans `src/app/globals.css`).
 - **Auth admin** : un compte unique (variables d'env) + session JWT signée (`jose`) en cookie httpOnly, protégée par `middleware.ts`.
 
 ### Contenu statique vs base de données
 
-| Statique (dans le code — `src/content/site.ts`) | Base de données (éditable via `/admin`) |
+| Statique (code: `src/content/site.ts`) | Base de données (éditable via `/admin`) |
 | --- | --- |
 | Héro, Programmes/établissements, Méthode, Livre d'Or, À propos, Stats 2025, Footer, métadonnées SEO | Actualités, Prochaine session, Barres de résultats + texte Résultats, Emploi du temps (image), Contact |
 
-Les lectures DB **retombent sur des valeurs par défaut** (`src/db/defaults.ts`) si la base est injoignable — le site s'affiche toujours.
+Les lectures DB **retombent sur des valeurs par défaut** (`src/db/defaults.ts`) si la base est injoignable: le site s'affiche toujours.
 
 ## Structure
 
@@ -50,7 +50,7 @@ npm run db:setup     # crée les tables + données par défaut
 npm run dev          # http://localhost:3000  (admin : /admin)
 ```
 
-## Déploiement (VPS — AWS t3.small)
+## Déploiement (VPS - AWS t3.small)
 
 Le build se fait **sur le VPS** (réseau rapide). La stack Compose : `db` + `migrate` (one-shot) + `app` (Next standalone) + `nginx` (TLS + reverse proxy).
 

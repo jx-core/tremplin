@@ -93,7 +93,7 @@ export async function getSiteConfig(): Promise<SiteConfig> {
     const rows = await query<SiteConfigRow>("SELECT * FROM site_config WHERE id = 1");
     return rows.length ? mapSiteConfig(rows[0]) : defaultSiteConfig;
   } catch (err) {
-    console.error("[db] getSiteConfig failed — using defaults:", err);
+    console.error("[db] getSiteConfig failed, using defaults:", err);
     return defaultSiteConfig;
   }
 }
@@ -107,7 +107,7 @@ export async function getResultBars(): Promise<ResultBar[]> {
       ? rows.map((r) => ({ id: r.id, name: r.name, value: parseFloat(r.value), sort: r.sort }))
       : defaultResultBars;
   } catch (err) {
-    console.error("[db] getResultBars failed — using defaults:", err);
+    console.error("[db] getResultBars failed, using defaults:", err);
     return defaultResultBars;
   }
 }
@@ -119,7 +119,7 @@ export async function getPublishedNews(): Promise<NewsItem[]> {
     );
     return rows.map(mapNews);
   } catch (err) {
-    console.error("[db] getPublishedNews failed — using defaults:", err);
+    console.error("[db] getPublishedNews failed, using defaults:", err);
     return defaultNews;
   }
 }

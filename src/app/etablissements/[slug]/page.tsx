@@ -26,7 +26,7 @@ export async function generateMetadata({
   const data = getEstablishment(slug);
   if (!data) return {};
   const { detail, program } = data;
-  const title = `${program.acronym} — ${program.full} | TREMPLIN`;
+  const title = `${program.acronym} - ${program.full} | TREMPLIN`;
   return {
     title,
     description: detail.intro,
@@ -194,7 +194,8 @@ export default async function EstablishmentPage({
           />
           <div className="relative z-[1] shell pt-8 pb-12 md:pt-10 md:pb-16">
             <Link href="/#programmes" className="inline-flex items-center gap-2 text-[13px] text-on-dark-soft hover:text-cream-yellow mb-7">
-              <span aria-hidden>←</span> Tous les programmes
+              <ArrowIcon className="w-3.5 h-3.5" style={{ transform: "scaleX(-1)" }} />
+              <span>Tous les programmes</span>
             </Link>
             <div className="flex items-start gap-4 mb-5">
               <div

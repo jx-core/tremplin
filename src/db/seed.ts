@@ -15,7 +15,7 @@ async function main() {
   const pool = new Pool({ connectionString: process.env.DATABASE_URL });
   const c = defaultSiteConfig;
 
-  // site_config singleton — insert defaults only if it does not exist yet.
+  // site_config singleton, insert defaults only if it does not exist yet.
   await pool.query(
     `INSERT INTO site_config (
         id, next_session_label, next_session_edition, next_session_day, next_session_month,
@@ -36,7 +36,7 @@ async function main() {
     ]
   );
 
-  // result_bars — seed defaults only when the table is empty.
+  // result_bars, seed defaults only when the table is empty.
   const { rows } = await pool.query<{ count: string }>("SELECT count(*) AS count FROM result_bars");
   if (Number(rows[0].count) === 0) {
     for (const b of defaultResultBars) {
@@ -46,7 +46,7 @@ async function main() {
     }
     console.log(`[seed] inserted ${defaultResultBars.length} result bars.`);
   } else {
-    console.log("[seed] result_bars already populated — skipped.");
+    console.log("[seed] result_bars already populated, skipped.");
   }
 
   // news intentionally left empty (none in the source content).

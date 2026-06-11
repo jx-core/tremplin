@@ -95,8 +95,8 @@ export default async function SettingsAdmin() {
         <form action={updateContactAction} className="adm-card grid gap-4">
           <Textarea label="Téléphones (un par ligne)" name="phones" defaultValue={ct.phones.join("\n")} rows={2} />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <Input label="Adresse — ligne 1" name="address_line_1" defaultValue={ct.address_line_1} />
-            <Input label="Adresse — ligne 2" name="address_line_2" defaultValue={ct.address_line_2} />
+            <Input label="Adresse, ligne1" name="address_line_1" defaultValue={ct.address_line_1} />
+            <Input label="Adresse, ligne2" name="address_line_2" defaultValue={ct.address_line_2} />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Input label="Nom Facebook" name="facebook_name" defaultValue={ct.facebook_name} />

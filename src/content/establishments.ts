@@ -42,7 +42,7 @@ const SLUGS: Record<string, string> = {
   EMIT: "emit",
   ENS: "ens",
   ISTE: "iste",
-  EGSS: "egss",
+  "EGSS / EGS": "egss",
   "POLY Vontovorona": "espa",
   AGRO: "agro",
   "ESP-Antsiranana": "esp-antsiranana",
@@ -58,14 +58,14 @@ export const establishmentDetails: Record<string, EstablishmentDetail> = {
       {
         university: "Université de Fianarantsoa",
         location: "Quartier de Tanambao-Antaninarenina, Fianarantsoa.",
-        system: "Système LMD (Licence–Master–Doctorat).",
+        system: "Système LMD (Licence, Master, Doctorat).",
         admission: [
-          "Informatique & IA — Concours national. Baccalauréats séries C, D, S ou Technique (Industrielle / Génie Civil).",
-          "Expertise Digitale — Concours national. Baccalauréats de toutes séries.",
+          "Informatique & IA : Concours national. Baccalauréats séries C, D, S ou Technique (Industrielle / Génie Civil).",
+          "Expertise Digitale : Concours national. Baccalauréats de toutes séries.",
         ],
         mentions: [
           { title: "Informatique", note: "Tronc commun en L1 et L2", parcours: ["Génie Logiciel et Base de Données (GB)", "Administration des Systèmes et Réseaux (SR)", "Informatique Générale (IG)"] },
-          { title: "Expertise Digitale", note: "Formation à distance et hybride", parcours: ["Métiers du Digital (MDi) — Licence", "Audit des Systèmes d'Informations (ASI) — Master"] },
+          { title: "Expertise Digitale", note: "Formation à distance et hybride", parcours: ["Métiers du Digital (MDi) : Licence", "Audit des Systèmes d'Informations (ASI) : Master"] },
           { title: "Intelligence Artificielle (IA)", note: "Niveau Master uniquement", parcours: ["Gouvernance et Ingénierie de Données (GID)", "Objets Connectés et Cyber Sécurité (OCC)"] },
         ],
       },
@@ -76,15 +76,15 @@ export const establishmentDetails: Record<string, EstablishmentDetail> = {
     short: "EMIT",
     tagline: "Management, informatique appliquée et communication.",
     intro:
-      "L'École de Management et d'Innovation Technologique croise trois mondes — gestion, informatique et communication — pour former des profils hybrides recrutés sur concours d'entrée.",
+      "L'École de Management et d'Innovation Technologique croise trois mondes (gestion, informatique et communication) pour former des profils hybrides recrutés sur concours d'entrée.",
     campuses: [
       {
         university: "Université de Fianarantsoa",
         system: "Système LMD.",
         admission: [
           "Concours d'entrée.",
-          "Management & Communication — Baccalauréat toutes séries (A, C, D) ou technique G1/G2.",
-          "Informatique — Baccalauréat séries C, D, S ou technique industriel.",
+          "Management & Communication : Baccalauréat toutes séries (A, C, D) ou technique G1/G2.",
+          "Informatique : Baccalauréat séries C, D, S ou technique industriel.",
         ],
         mentions: [
           { title: "Management", parcours: ["Administration Économique et Sociale (AES)", "Management Décisionnel (MD)", "Management d'Entreprises et Développement des Affaires (MEDA)"] },
@@ -107,8 +107,8 @@ export const establishmentDetails: Record<string, EstablishmentDetail> = {
         system: "Système LMD.",
         admission: [
           "Concours d'entrée (écrit et oral).",
-          "Filières scientifiques — Baccalauréat séries C, D ou S.",
-          "Sciences de l'éducation — Baccalauréat de toutes séries.",
+          "Filières scientifiques : Baccalauréat séries C, D ou S.",
+          "Sciences de l'éducation : Baccalauréat de toutes séries.",
         ],
         mentions: [
           { title: "Mathématiques", parcours: ["LAPEN Mathématiques (Licence)", "MAPEN Mathématiques (Master)"] },
@@ -124,9 +124,9 @@ export const establishmentDetails: Record<string, EstablishmentDetail> = {
         system: "LMD + Certificat d'aptitude à l'enseignement (CAP/CAPE) par discipline.",
         admission: [
           "Concours national (écrit et oral). Être titulaire du baccalauréat et avoir moins de 25 ans.",
-          "Littéraire (Langues, Philosophie, HGEC) — séries A, L.",
-          "Scientifique (Maths, Physique-Chimie, SVT) — séries C, D, S.",
-          "Sportive (APSA) — toutes séries (conditions physiques : 1,55 m candidates / 1,60 m candidats).",
+          "Littéraire (Langues, Philosophie, HGEC) : séries A, L.",
+          "Scientifique (Maths, Physique-Chimie, SVT) : séries C, D, S.",
+          "Sportive (APSA) : toutes séries (conditions physiques : 1,55 m candidates / 1,60 m candidats).",
         ],
         mentions: [
           { title: "Filières littéraires", parcours: ["Malgache", "Français", "Anglais", "Philosophie"] },
@@ -162,23 +162,48 @@ export const establishmentDetails: Record<string, EstablishmentDetail> = {
   },
 
   egss: {
-    short: "EGSS",
+    short: "EGSS / EGS",
     tagline: "Économie, gestion et sciences sociales.",
     intro:
-      "La Faculté EGSS-MCI forme aux sciences de la société et au commerce international : économie, gestion, et sciences sociales appliquées.",
+      "Les sciences de la société : économie, gestion et sciences sociales. TREMPLIN prépare aux deux facultés : la Faculté EGSS de Fianarantsoa et la Faculté EGS d'Antananarivo.",
     campuses: [
       {
+        label: "EGSS Fianarantsoa",
         university: "Université de Fianarantsoa",
         system: "Système LMD.",
         admission: [
           "Concours d'entrée ou sélection sur dossier.",
-          "Économie-Gestion — Baccalauréat séries A2, G1, G2 ou G3.",
-          "Sciences Sociales — Baccalauréat séries L, A1, A2, C, D, G1 ou G2.",
+          "Économie-Gestion : baccalauréat séries A2, G1, G2 ou G3.",
+          "Sciences Sociales : baccalauréat séries L, A1, A2, C, D, G1 ou G2.",
         ],
         mentions: [
           { title: "Économie-Gestion", parcours: ["Économie", "Gestion et Management des Entreprises", "Finance et Comptabilité (Master)", "Entrepreneuriat (Master)"] },
           { title: "Sciences Sociales", parcours: ["Socio-Économie", "Socio-Environnement", "Sociopolitique", "Ingénierie Sociale (Master)"] },
         ],
+      },
+      {
+        label: "EGS Antananarivo (Ankatso)",
+        university: "Université d'Antananarivo",
+        location: "Campus d'Ankatso, Antananarivo.",
+        system: "Système LMD. Parfois désignée Faculté DEGSS dans les documents officiels.",
+        admission: [
+          "Test écrit ou sélection sur dossier. Les épreuves se tiennent dans les six chefs-lieux de provinces.",
+          "Économie et Gestion : toutes séries (C, D, G2 conseillés).",
+          "Sociologie : toutes séries (A, G1 conseillés).",
+        ],
+        mentions: [
+          { title: "Économie", note: "Analyse économique, politiques publiques et mécanismes des marchés." },
+          { title: "Gestion", parcours: ["Administration, Finance et Comptabilité", "Administration, Marketing et Commerce"] },
+          { title: "Sociologie", parcours: ["Politique, Gouvernance et Dynamique Sociale", "Culture et Éducation", "Organisation et Travail"] },
+        ],
+        debouches: [
+          "Économiste (ministères, banques, organismes internationaux, bureaux d'études)",
+          "Comptable, auditeur, contrôleur de gestion, responsable marketing",
+          "Sociologue, chargé d'études sociales, consultant en développement",
+          "Responsable des ressources humaines",
+          "Secteur public et ONG : planification, gestion de projets territoriaux",
+        ],
+        contact: { website: "facultedegss-uf.mg" },
       },
     ],
   },
@@ -227,8 +252,8 @@ export const establishmentDetails: Record<string, EstablishmentDetail> = {
           "Baccalauréats séries C, D ou Technique Agricole.",
         ],
         mentions: [
-          { title: "Licence — Sciences Agronomiques et Environnementales (SAE)", note: "Tronc commun ; spécialisation au S6", parcours: ["Agriculture Tropicale et Développement Durable (AT2D)", "Agro-Management", "Foresterie et Environnement (FE)", "Industries Agricoles et Alimentaires (IAA)", "Sciences Animales (SA)"] },
-          { title: "Master — 6 mentions", parcours: ["Agriculture Tropicale et Développement Durable (AT2D)", "Foresterie et Environnement (ESSA-Forêts)", "Industries Agricoles et Alimentaires (IAA)", "Sciences Animales (Ruminants / Monogastriques)", "Agro-Management", "Agroécologie, Biodiversité et Changement Climatique (ABC)"] },
+          { title: "Licence : Sciences Agronomiques et Environnementales (SAE)", note: "Tronc commun ; spécialisation au S6", parcours: ["Agriculture Tropicale et Développement Durable (AT2D)", "Agro-Management", "Foresterie et Environnement (FE)", "Industries Agricoles et Alimentaires (IAA)", "Sciences Animales (SA)"] },
+          { title: "Master : 6 mentions", parcours: ["Agriculture Tropicale et Développement Durable (AT2D)", "Foresterie et Environnement (ESSA-Forêts)", "Industries Agricoles et Alimentaires (IAA)", "Sciences Animales (Ruminants / Monogastriques)", "Agro-Management", "Agroécologie, Biodiversité et Changement Climatique (ABC)"] },
         ],
         debouches: ["Ingénieur agronome, conseiller agricole, chef de projet rural", "Industrie agroalimentaire (production, qualité)", "Gestion des ressources naturelles (forêts, eau)", "Recherche et enseignement", "Institutions et ONG de développement", "Secteur public (Agriculture, Environnement, Eau)"],
         contact: { phone: "+261 20 24 393 53", email: "contact@essagro.mg", website: "essagro.mg" },
@@ -248,7 +273,7 @@ export const establishmentDetails: Record<string, EstablishmentDetail> = {
         founded: "Fondée en 1976 dans le cadre de la décentralisation universitaire.",
         system: "Tronc Commun Industriel (TCI) en 1ère année, puis spécialisation. Système LMD.",
         admission: [
-          "Concours d'entrée — 300 places par promotion.",
+          "Concours d'entrée : 300 places par promotion.",
           "Baccalauréats séries C, D, S, Technique Industriel, Technique Génie Civil ou Technique Agricole.",
           "Avoir moins de 25 ans à la date du concours.",
         ],

@@ -10,7 +10,7 @@ export const pool: Pool =
   global.__tremplinPgPool ??
   new Pool({
     connectionString: process.env.DATABASE_URL,
-    max: 5, // keep low — the target VPS only has 2 GB RAM
+    max: 5, // keep low, the target VPS only has 2 GB RAM
     idleTimeoutMillis: 30_000,
     connectionTimeoutMillis: 5_000,
   });

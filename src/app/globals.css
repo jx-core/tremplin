@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* =============================================================
-   TREMPLIN — design system (Tailwind v4, CSS-first @theme)
+   TREMPLIN, design system (Tailwind v4, CSS-first @theme)
    Strict 4-color brand palette + neutrals. No blue, no emoji.
    Fonts are injected by next/font as CSS variables in layout.tsx:
      --font-inter, --font-poppins, --font-mono
@@ -26,7 +26,7 @@
   --color-ink-soft: #5b463b;
   --color-ink-muted: #8a7264;
 
-  /* Rules / on-dark neutrals (baked alpha — enables utilities like border-rule, text-on-dark-soft) */
+  /* Rules / on-dark neutrals (baked alpha, enables utilities like border-rule, text-on-dark-soft) */
   --color-rule: rgba(31, 20, 16, 0.1);
   --color-rule-strong: rgba(31, 20, 16, 0.18);
   --color-on-dark-soft: rgba(253, 246, 234, 0.78);
@@ -339,7 +339,7 @@
   }
 }
 
-/* Scroll-reveal (progressive enhancement — see Reveal.tsx; no-JS override in layout). */
+/* Scroll-reveal (progressive enhancement, see Reveal.tsx; no-JS override in layout). */
 .reveal {
   opacity: 0;
   transform: translateY(14px);
