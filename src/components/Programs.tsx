@@ -1,4 +1,7 @@
+import Link from "next/link";
 import { programs, type Establishment } from "@/content/site";
+import { slugForAcronym } from "@/content/establishments";
+import { ArrowIcon } from "@/lib/icons";
 import SectionHead from "./SectionHead";
 
 const SCRIM =
@@ -6,11 +9,12 @@ const SCRIM =
 
 function ProgramCard({ e }: { e: Establishment }) {
   const logos = e.logos && e.logos.length ? e.logos : [e.logo];
-  return (
-    <article
-      className="group relative overflow-hidden rounded-xl min-h-[320px] flex flex-col p-[22px] pb-6 border border-rule-strong bg-burgundy-deep bg-cover bg-center isolate transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_14px_30px_rgba(31,20,16,0.3)]"
-      style={{ backgroundImage: `url("${e.cover}")` }}
-    >
+  const slug = slugForAcronym(e.acronym);
+  const cls =
+    "group relative overflow-hidden rounded-xl min-h-[320px] flex flex-col p-[22px] pb-6 border border-rule-strong bg-burgundy-deep bg-cover bg-center isolate transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_14px_30px_rgba(31,20,16,0.3)]";
+
+  const content = (
+    <>
       <div aria-hidden className="absolute inset-0 z-0 pointer-events-none" style={{ background: SCRIM }} />
 
       {/* top: logo chip + status */}
@@ -30,7 +34,7 @@ function ProgramCard({ e }: { e: Establishment }) {
         </div>
       </div>
 
-      {/* bottom: acronym / full name / type */}
+      {/* bottom: acronym / full name / type / link */}
       <div className="relative z-[1] flex flex-col gap-2">
         <div className="font-display font-semibold text-[32px] leading-none tracking-[-0.012em] text-white [text-shadow:0_2px_14px_rgba(0,0,0,0.6)]">
           {e.acronym}
@@ -41,7 +45,23 @@ function ProgramCard({ e }: { e: Establishment }) {
         <div className="text-[13.5px] leading-snug text-on-dark-soft [text-shadow:0_1px_6px_rgba(0,0,0,0.6)]">
           {e.type}
         </div>
+        {slug && (
+          <div className="mt-2 inline-flex items-center gap-1.5 text-[12.5px] font-semibold text-cream-yellow [text-shadow:0_1px_6px_rgba(0,0,0,0.7)]">
+            Voir le détail
+            <ArrowIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+          </div>
+        )}
       </div>
+    </>
+  );
+
+  return slug ? (
+    <Link href={`/etablissements/${slug}`} aria-label={`${e.acronym} — voir le détail`} className={cls} style={{ backgroundImage: `url("${e.cover}")` }}>
+      {content}
+    </Link>
+  ) : (
+    <article className={cls} style={{ backgroundImage: `url("${e.cover}")` }}>
+      {content}
     </article>
   );
 }
