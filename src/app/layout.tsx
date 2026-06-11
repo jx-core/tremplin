@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   keywords: [...siteMeta.keywords],
   authors: [{ name: siteMeta.author }],
   applicationName: siteMeta.name,
-  robots: { index: true, follow: true, maxImagePreview: "large" },
+  robots: { index: true, follow: true, "max-image-preview": "large" },
   alternates: { canonical: "/" },
   manifest: "/assets/favicon/site.webmanifest",
   icons: {
