@@ -35,7 +35,7 @@ const ESTABLISHMENT_ORDER = ["ENI", "EMIT", "ENS", "ISTE", "EGSS", "ESPA", "AGRO
 // ---------------------------------------------------------------------------
 export const siteMeta = {
   name: "TREMPLIN",
-  title: "TREMPLIN, préparation aux concours universitaires de Madagascar",
+  title: "TREMPLINㆍPréparation aux concours universitaires de Madagascar",
 
   description:
     "Cours Prépa TREMPLIN. Préparation structurée aux concours universitaires " +
@@ -45,7 +45,7 @@ export const siteMeta = {
   shortDescription:
     "Préparation structurée aux concours universitaires malgaches. " +
     "Méthode ciblée, entraînement régulier, encadrement humain. " +
-    "ENI, EMIT, ENS, ISTE, EGSS, Polytechnique, AGRO.",
+    "ENI, EMIT, ENS, ISTE, EGSS, Polytechniques, AGRO.",
 
   /* ------------------------------------------------------------------
      SEO keywords, deduplicated, alphabetically sorted.
