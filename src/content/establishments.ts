@@ -43,7 +43,7 @@ const SLUGS: Record<string, string> = {
   ENS: "ens",
   ISTE: "iste",
   EGSS: "egss",
-  "POLYTECH Vontovorona": "espa",
+  "POLY Vontovorona": "espa",
   AGRO: "agro",
   "ESP-Antsiranana": "esp-antsiranana",
 };
