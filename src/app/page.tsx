@@ -13,9 +13,10 @@ import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import { getSiteConfig, getResultBars, getPublishedNews } from "@/db/queries";
 
-// Render on every request so the page always reflects the latest admin edits.
-// DB queries fall back to seed defaults if Postgres is unreachable.
-export const dynamic = "force-dynamic";
+// ISR: serve a cached static render (fast TTFB, ideal for SEO) and regenerate at most
+// every 5 minutes. Admin mutations call revalidatePath("/"), so edits also refresh the
+// cache immediately. DB queries fall back to seed defaults if Postgres is unreachable.
+export const revalidate = 300;
 
 export default async function Home() {
   const [config, bars, news] = await Promise.all([
